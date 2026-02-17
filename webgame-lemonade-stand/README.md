@@ -1,3 +1,5 @@
+# customer walk animations dysfunctional.
+
 **Projet 2: When Life gives you L3monz - Cahier de charges.**
 
 **Nom/objectif:** When Life gives you L3monz: développer un site web qui simule une entreprise de stand de limonade pour mieux comprendre des notions de base d'economie (Spé SES).
