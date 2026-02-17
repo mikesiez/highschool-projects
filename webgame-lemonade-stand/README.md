@@ -1,5 +1,3 @@
-# images initially used had to be removed as they were not my own. game may not look right if tested as i did not retest with new iamges.
-
 **Projet 2: When Life gives you L3monz - Cahier de charges.**
 
 **Nom/objectif:** When Life gives you L3monz: développer un site web qui simule une entreprise de stand de limonade pour mieux comprendre des notions de base d'economie (Spé SES).
