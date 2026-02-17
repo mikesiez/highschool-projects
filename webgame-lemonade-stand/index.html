@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Lemonade stand!</title>
+    <link href="style.css" rel="stylesheet">
+
+    <script src="jquery-3.7.1.min.js" charset="utf-8"></script>
+</head>
+
+<body>
+
+    <!--<header>Cours de NSI - Projet Janvier / Fevrier 2023</header> -->
+    <h1 id="Titre">Bienvenue a lemonade stand! Voyons-nous si vous etes des bon entrepreneurs!</h1> <br/>
+
+    <section id="Statistiques">
+
+        <div id="Compteurs" style="display:none;">
+            Argent : <span id="Argent">0</span>
+            <b>|||||</b>
+            Metéo : <span id="Meteo">0</span>
+        </div>
+
+        <input id="startDay" type="button" value="Démarrer la journée!" onclick="demarrerJournee();" />
+
+    </section> <br/>
+
+    <section id="jeu">
+
+        <div id="jeu_main">
+
+            <div id="meteo">
+                <h2 id="titreMeteo">Metéo du jour:</h3>
+                         
+                <img id="nuage" src='Images/meteo/cloudy.png' class='meteo'/>
+                <img id="soleil" src='Images/meteo/sunny.png' class='meteo'/>
+                <img id="vent" src="Images/meteo/windy.png" class="meteo" /> 
+                <img id="tempete" src="Images/meteo/stormy.png" class="meteo" />
+                <img id="pluie" src="Images/meteo/rainy.png" class="meteo"/>
+                <img id="neige" src="Images/meteo/snowy.png" class="meteo"/>
+    
+            </div>
+
+            <img id="customer1" src="./Images/caracteres/carac1.png"/>
+            <img id="customer2" src="./Images/caracteres/carac2.png"/>
+            <img id="customer3" src="./Images/caracteres/carac3.png"/>
+            <img id="customer4" src="./Images/caracteres/carac4.png"/>
+            <img id="customer5" src="./Images/caracteres/carac5.png"/>    
+
+            <img id="lemonade_stand" src='Images/stand.png'/>
+
+            <img id="adstand" src="Images/panneau_publicite.png"/>
+            <img id="adTen" src="Images/ads/ten.png"/>
+            <img id="adTwenty" src="Images/ads/twenty.png"/>
+            <img id="adFifty" src="Images/ads/fifty.png"/>
+
+        </div> <br/>
+        <section id="controlleur">
+
+            <div id="controlSections">
+                <input id="menu" type="button" value="Prix du Menu"/>
+                <input id="upgrades" type="button" value="Améliorations"/>
+                <input id="stock" type="button" value="Stock"/>
+                <input id="confirmerTout" type="button" value="Confirmer les parametres: PRIX & STOCK"/>
+                <input id="ingDJhtml" type="button" value="Ingredient du jour (+35%): Aucun">
+            </div>
+
+            <script> // The javascript specifically for the buttons
+                $(document).ready(function() {
+                    $("#menu").click(function() { $("#menuSection").slideDown(); $("#upgradesSection").hide(); $("#stockSection").hide(); });
+                    $("#upgrades").click(function() { $("#menuSection").hide(); $("#upgradesSection").slideDown(); $("#stockSection").hide(); });
+                    $("#stock").click(function() { $("#menuSection").hide(); $("#upgradesSection").hide(); $("#stockSection").slideDown(); });
+                    $("#confirmerTout").click(function() {disableButtons()});
+                });
+            </script>
+
+            <h2 id="argent">Argent: #</h2>
+
+                <h1 id="adsContainer" style="font-size:x-large;">Publicité pour 5 jours (Bonus):
+                    <select value="0" id="ads" style="margin-top: -50px; font-size: 100%">
+                        <option id="adsOptionRemove" value="0">Choisissez la publicité du jour!</option>
+                        <option value="15">$80 pour +50% boost</option>
+                        <option value="10">$40 pour +25% boost</option>
+                        <option value="5">$20 pour +10% boost</option>
+                    </select>
+                </h1>
+
+            <h2 id="jour">Jour: 0</h2> <br/>
+                
+            <section id="menuSection">
+
+                <h3 id="sliderLemonade" style="font-size:x-large;">Cout de limonade:<!-- VALUES ARE IN CENTS TO BE DIVIDED TO DOLLARS -->
+                    <input id="sliderLemonadeValue" type="range" min="50" max="500" value="0"> <h2 id="lemonadePrice">$0</h2>
+                </h3>
+                <h3 id="sliderIce" style="font-size:x-large;">Cout de glacons:
+                    <input id="sliderIceValue" type="range" min="10" max="100" value="0"> <h2 id="icePrice">$0</h2>
+                </h3>
+                <h3 id="sliderSugar" style="font-size:x-large;">Cout du sucre:
+                    <input id="sliderSugarValue" type="range" min="25" max="200" value="0"> </input><h2 id="sugarPrice">$0</h2>
+                </h3>
+                <h3 id="sliderSlice" style="font-size:x-large;">Cout d'une slice:
+                    <input id="sliderSliceValue" type="range" min="10" max="100" value="0"> <h2 id="slicePrice">$0</h2>
+                </h3> <br/>
+
+            </section>
+
+            <section id="stockSection" style="display:none">
+                <h3 id="titre1" style="font-size:x-large;">Stock a acheter:
+                    <input id="confirmerStock" type="button" value="Confirmer Achat" onclick="ConfirmerAchatStock();"/><h2 id="titre2">Votre stock | Prix d'un item</h2>
+                </h3>
+                <h3 id="numLemonade" style="font-size:x-large;">Stock de limonade:
+                    <input id="numLemonadeValue" type="number" min="0" max="500" value="0"> <h2 id="lemonadeStock">0 | $1.25 </h2>
+                </h3>
+                <h3 id="numIce" style="font-size:x-large;">Stock de glacons:
+                    <input id="numIceValue" type="number" min="0" max="100" value="0"> <h2 id="iceStock">0 | $0.25 </h2>
+                </h3>
+                <h3 id="numSugar" style="font-size:x-large;">Stock du sucre:
+                    <input id="numSugarValue" type="number" min="0" max="200" value="0"> <h2 id="sugarStock">0 | $0.50 </h2>
+                </h3>
+                <h3 id="numSlice" style="font-size:x-large;">Stock de slices:
+                    <input id="numSliceValue" type="number" min="0" max="500" value="0"> <h2 id="sliceStock">0 | $0.25 </h2>
+                </h3> <br/>
+            </section>
+
+            <section id="upgradesSection" style="display:none">
+                <div id="upgrade1" style="font-size:x-large;">
+                    <img id="upgrade1Image" src="./Images/Upgrades/upgrade1.png"> 
+                    <h1 id="upg1Title">Amélioration 1: Prévision quotidienne de la météo! - $50 <input id="upgrade1Button" type="button" value="Acheter" style="padding:2.5px 5px" onclick="ConfirmerAchatUpgrades(1); "/></h1>
+                    <p style="font-size:large">Bénéficiez d'une vue permanente des prévisions météorologiques du jour à venir afin de pouvoir planifier à l'avance vos coûts et vos achats de stocks et développer votre activité plus facilement !</p>
+                </div>
+                <div id="upgrade2" style="font-size:x-large;">
+                    <img id="upgrade2Image" src="./Images/Upgrades/upgrade2.png">
+                    <h1 id="upg2Title">Amélioration 2: Fini la mauvaise météo! - $100 <input id="upgrade2Button" type="button" value="Acheter" style="padding:2.5px 5px" onclick="ConfirmerAchatUpgrades(2); "/></h1>
+                    <p style="font-size:large">Fini le mauvais temps ! Vous n'aurez désormais plus que du temps pluvieux, nuageux ou ensoleillé, plus de neige et de tonnerre !</p>
+                </div> <br/>
+            </section>
+            
+
+        </section> <br/>
+
+    </section> <br/>
+
+    <footer>
+        PROJET NSI - Lycée Claudel - Ottawa - 2023 <br />
+        <ul>
+            Developpé par:
+            <li> Michael </li>
+            <li> Luccin </li>
+            <li> Caleb </li>
+        </ul>
+    </footer>
+    
+    <script src="main.js" charset="utf-8"></script>
+</body>
+
+</html>
