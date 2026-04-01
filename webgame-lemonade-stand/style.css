@@ -1,0 +1,231 @@
+/* MARGINS / POSITIONING IN PIXELS AND SIZING IN PERCENTAGES */
+
+body {
+    font-family: sans-serif;
+    background: yellowgreen;
+	box-shadow: 1px 1px 12px #aaa;
+    text-align: center;
+}
+
+h1, h2, h3, h4 {
+    text-align: center;
+    color:black;
+    margin:0;
+}
+
+input[type="submit"] {
+  display: block;
+  margin:auto;
+}
+
+header {
+    font-size: 10px;
+    text-align: right;
+    font-style: italic;
+}
+
+/*cursor: pointer;*/
+
+section,footer,#menu,#stock,#upgrades,#upgrade1,#upgrade2,#upgrade2Image,#upgrade1Image {
+    /*display: inline-block;*/
+    vertical-align: middle;
+    border: solid;
+    border-width: 100%;
+    border-color: black;
+}
+
+footer {
+    text-align: left;
+    font-size: 10px;
+    border: solid 2.5px;
+    border-color: greenyellow;
+    background: forestgreen;
+    margin-top: 10px;
+    padding: 5px;
+}
+
+#Statistiques {
+    border:none;
+}
+
+#startDay:hover, #confirmerTout:hover {background-color: rgb(131, 124, 124);}
+
+#Compteurs {
+    display: inline-block;
+    border: solid 2px;
+    padding: 10px 20px;
+    margin: 20px 50px;
+    font-family: fantasy;
+}
+
+#jeu {
+    width: 99%;
+    height: 1100px;
+    border-radius: 15px;
+}
+
+#meteo {
+    border: solid;
+    border-width: 100%;
+    border-color: gray;
+    border-radius: 10px;
+    width: 15%;
+    height: 27%;
+    margin-top: 10px;
+    margin-right: 10px;
+    float: right;
+}
+
+#lemonade_stand {
+    margin-left: 10px;
+    margin-top: 167px;
+    width: 20%;
+    height: 51%;
+    bottom: 0%;
+}
+#customer {
+    position: absolute;
+    margin-left: 0px;
+    
+}
+#adstand {
+    margin-bottom: -5px;
+    margin-left: 100px;
+    width: 8%;
+    height: 30%;
+}
+
+#adTen,#adTwenty,#adFifty {
+    position: absolute;
+    margin-top: 335px;
+    margin-left: -90px;
+    width: 6%;
+    rotate: -20deg;
+    display: none;
+}
+
+#jeu_main {
+    border: solid;
+    border-width: 100%;
+    border-color: forestgreen;
+    border-radius: 10px;
+    background-image: url("Images/route.png");
+    background-size: 100% 100%;
+    position: relative;
+    width: 97%;
+    height: 54%;
+    left: 20px;
+    top: 10px;
+    z-index:-1;
+}
+
+#meteo img {
+    display: none;
+    max-width: 70%;
+    max-height: 70%;
+}
+
+#controlleur {
+    border-color: orange;
+    background-color: darkgoldenrod;
+    border-radius: 10px;
+    width: 93%;
+    height: 30%;
+    margin-top: 100px;
+    margin-left: 48px;
+}
+
+#controlSections {
+    float: left;
+    margin-top:-50px;
+    /*borders + colors*/
+}
+
+#menu,#stock,#upgrades {background-color: darkgoldenrod; border-color: orange; border-radius: 5px;}
+#menu:hover,#stock:hover,#upgrades:hover {background-color: rgb(109, 80, 7);}
+
+#menuSection,#stockSection,#upgradesSection {
+    height: 84%;
+    border-radius: 5px;
+    border: solid 2px rgba(255,165,0,.5);
+}
+
+#menuSection,#stockSection,#upgradesSection {display: flex; flex-direction: column; align-items: flex-start;}
+
+#sliderSugar,#sliderIce,#sliderLemonade,#sliderSlice { margin-top: 30px; margin-left:20px;}
+#lemonadePrice,#icePrice,#sugarPrice,#slicePrice {margin-left:800px; margin-top:-30px;}
+
+/* SLIDERS CUSTOMIZATIONS */
+#sliderSugarValue, #sliderIceValue, #sliderLemonadeValue, #sliderSliceValue {
+    -webkit-appearance: none;
+    width: 500px;
+    height: 24px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    opacity: 0.7;
+}
+#sliderSugarValue:hover ,#sliderIceValue:hover ,#sliderLemonadeValue:hover ,#sliderSliceValue:hover, #confirmerStock:hover, #upgrade1Button:hover, #upgrade2Button:hover {opacity: 1;}
+#sliderSugarValue::-webkit-slider-thumb {background: url("./Images/Ingredients/Sugar.png"); background-size: 115%;}
+#sliderIceValue::-webkit-slider-thumb {background: url("./Images/Ingredients/Ice.png"); background-size: 122%;}
+#sliderLemonadeValue::-webkit-slider-thumb {background: url("./Images/Ingredients/lemon.png"); background-size: 110%;}
+#sliderSliceValue::-webkit-slider-thumb {background: url("./Images/Ingredients/lemon.png"); background-size: 110%;}
+#sliderSugarValue::-webkit-slider-thumb,#sliderIceValue::-webkit-slider-thumb,#sliderLemonadeValue::-webkit-slider-thumb,#sliderSliceValue::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 40px;
+    height: 40px;;
+    cursor: pointer;
+}
+
+/* END OF SLIDERS CUSTOMIZATIONS */
+
+#numSugarValue ,#numIceValue ,#numLemonadeValue ,#numSliceValue {
+    -webkit-appearance: none;
+    width: 100px;
+    height: 24px;
+    font-weight: bold;
+    font-size: larger;
+    border-radius: 5px;
+    background: #d3d3d3;
+    opacity: 0.7;
+}
+
+#upgrade1,#upgrade2 {
+    border-color: rgba(255,165,0,.5);
+    width: 90%;
+}
+
+#upgrade1Image, #upgrade2Image {
+    width: 135px;
+    border-color: rgba(255,165,0,.5);
+    float:left;
+}
+
+#customer1,#customer2,#customer3,#customer4,#customer5,#customer6 {
+    display:none;
+    width: 10%;
+    margin-left: -320px;
+    margin-top: 300px;
+    position: absolute;
+}
+
+#confirmerStock,#upgrade1Button,#upgrade2Button {-webkit-appearance: none; font-size: medium; border-radius: 5px; background: #d3d3d3; opacity: 0.7; color:black;}
+#titre1,#numSugar,#numIce,#numLemonade,#numSlice { margin-top: 18px; margin-left:20px;}
+#titre2,#lemonadeStock,#iceStock,#sugarStock,#sliceStock {margin-left:500px; margin-top:-25px;}
+
+#argent {float:left; margin-left: 5px; margin-top: 5px;}
+#jour {float:right; margin-right: 7px; margin-top: -27px;}
+#adsContainer {margin-top:5px; margin-right:120px;}
+
+input[type=button] {
+    font-family: fantasy;
+    padding: 10px 20px;
+    background-color: white;
+}
+
+#ingDJhtml {
+    background:none;
+    color: black;
+    padding: 5px 10px;
+    font-size: x-large;
+    border-width: 0px;
+}
